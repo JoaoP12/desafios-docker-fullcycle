@@ -1,0 +1,9 @@
+version: "2"
+
+services:
+  goapp:
+    volumes: 
+      - ./app:/go/src/app
+    container_name: goapp
+    build:
+      context: .
