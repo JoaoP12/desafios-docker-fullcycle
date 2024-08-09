@@ -13,10 +13,9 @@ const config = {
 const mysql = require("mysql2");
 const connection = mysql.createConnection(config);
 
-const insertSQL = `INSERT INTO people(name) VALUES('JP');`;
-connection.query(insertSQL, function () {});
-
 app.get("/", (req, res) => {
+  const insertSQL = `INSERT INTO people(name) VALUES('JP');`;
+  connection.query(insertSQL, function () {});
   connection.query(`SELECT name FROM people;`, function (err, results) {
     if (results) {
       const names = results.map((result) => result.name).join("<br />- ");
